@@ -1,2 +1,245 @@
 
-MELTING 5 jars
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# melting5jars
+
+An R package wrapper for
+[MELTING 5](http://www.ebi.ac.uk/biomodels/tools/melting/) jars.
+
+The ‘MELTING 5’ ‘Java’ archive file is included along with the model
+data directory to facilitate accessing the library computations from
+within an R session.
+
+## Installation
+
+You can install `melting5jars` from github with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("hrbrmstr/melting5jars")
+```
+
+## Example
+
+This is an example made for the [SO
+question](https://stackoverflow.com/questions/48128038/r-wrapper-for-a-java-method-in-a-jar-using-rjava/48129909#48129909)
+that caused the creation of the package:
+
+It is designed to (lightly) mimic the functionality of
+`melting/Main.java`
+
+Here’s `melting/Main.java`:
+
+``` java
+package melting;
+
+import java.text.NumberFormat;
+
+import melting.configuration.OptionManagement;
+import melting.configuration.RegisterMethods;
+import melting.methodInterfaces.MeltingComputationMethod;
+import melting.nearestNeighborModel.NearestNeighborMode;
+
+/**
+ * The Melting main class which contains the public static void main(String[] args) method.
+ */
+public class Main {
+
+    // private static methods
+
+    /**
+     * Compute the entropy, enthalpy and the melting temperature and display the results. 
+     * @param args : contains the options entered by the user.
+     * @param OptionManagement optionManager : the OptionManegement which allows to manage
+     * the different options entered by the user.
+     */
+    private static ThermoResult runMelting(String [] args, OptionManagement optionManager){
+        try {
+                        ThermoResult results = 
+                                        getMeltingResults(args, optionManager);
+            displaysMeltingResults(results);
+                        return results;
+
+        } catch (Exception e) {
+            OptionManagement.logError(e.getMessage());
+                        return null;
+        }
+    }
+
+        /**
+         * Compute the entropy, enthalpy and melting temperature, and return 
+         * these results.
+         * @param args options (entered by the user) that determine the
+         *             sequence, hybridization type and other features of the
+         *             environment.
+         * @param optionManager the {@link 
+         *                           melting.configuration.OptionManagement 
+         *                           <code>OptionManagement</code>} which
+         *                      allows the program to manage the different
+         *                      options entered by the user.  
+         * @return The results of the Melting computation.
+         */
+        public static ThermoResult getMeltingResults(String[] args,
+                                                OptionManagement optionManager)
+        {
+            NumberFormat format = NumberFormat.getInstance();
+            format.setMaximumFractionDigits(2);
+
+            // Set up the environment from the supplied arguments and get the 
+            // results.
+            Environment environment = optionManager.createEnvironment(args);
+            RegisterMethods register = new RegisterMethods();
+            MeltingComputationMethod calculMethod = 
+                register.getMeltingComputationMethod(environment.getOptions());
+            ThermoResult results = calculMethod.computesThermodynamics();
+            results.setCalculMethod(calculMethod);
+            environment.setResult(results);
+
+            // Apply corrections to the results.
+            results = calculMethod.getRegister().
+                                   computeOtherMeltingCorrections(environment);
+            environment.setResult(results);
+            return environment.getResult();
+        }
+
+    /**
+     * displays the results of Melting : the computed enthalpy and entropy (in cal/mol and J/mol), and the computed 
+     * melting temperature (in degrees).
+     * @param results : the ThermoResult containing the computed enthalpy, entropy and
+     * melting temperature
+     * @param MeltingComputationMethod calculMethod : the melting computation method (Approximative or nearest neighbor computation)
+     */
+    private static void displaysMeltingResults(ThermoResult results)
+        {
+        NumberFormat format = NumberFormat.getInstance(); 
+        format.setMaximumFractionDigits(2);
+                MeltingComputationMethod calculMethod = 
+                                                     results.getCalculMethod();
+
+        double enthalpy = results.getEnthalpy();
+        double entropy = results.getEntropy();
+
+        OptionManagement.logInfo("\n The MELTING results are : ");
+        if (calculMethod instanceof NearestNeighborMode){
+            OptionManagement.logInfo("Enthalpy : " + format.format(enthalpy) + " cal/mol ( " + format.format(results.getEnergyValueInJ(enthalpy)) + " J /mol)");
+            OptionManagement.logInfo("Entropy : " + format.format(entropy) + " cal/mol-K ( " + format.format(results.getEnergyValueInJ(entropy)) + " J /mol-K)");
+        }
+        OptionManagement.logInfo("Melting temperature : " + format.format(results.getTm()) + " degrees C.\n");
+    }
+
+    // public static main method
+
+    /**
+     * @param args : contains the options entered by the user.
+     */
+    public static void main(String[] args) {
+
+        OptionManagement optionManager = new OptionManagement();
+
+        if (args.length == 0){
+            optionManager.initialiseLogger();
+            optionManager.readMeltingHelp();
+        }
+        else if (optionManager.isMeltingInformationOption(args)){
+            try {
+                optionManager.readOptions(args);
+
+            } catch (Exception e) {
+                OptionManagement.logError(e.getMessage());
+            }
+        }
+        else {
+            runMelting(args, optionManager);
+        }
+    }
+}
+```
+
+and, here’s a light wrapper for it:
+
+``` r
+get_melting_results <- function(opts = c()) {
+
+  stopifnot(length(opts) > 2) # a sanity check that could be improved
+
+  Sys.setenv("NN_PATH"=system.file("extdata", "Data", package="melting5jars"))
+
+  require(melting5jars)
+
+  melting <- new(J("melting.Main"))
+  optionManager <- new(J("melting.configuration.OptionManagement"))
+
+  results <- melting$getMeltingResults(opts, optionManager)
+
+  calculMethod <- results$getCalculMethod()
+
+  enthalpy_cal <- results$getEnthalpy()
+  entropy_cal <- results$getEntropy()
+
+  enthalpy_J <- entropy_J <- NULL
+
+  if (.jinstanceof(calculMethod, J("melting.nearestNeighborModel.NearestNeighborMode"))) {
+    enthalpy_J <- results$getEnergyValueInJ(enthalpy_cal)
+    entropy_J <- results$getEnergyValueInJ(entropy_cal)
+  }
+
+  melting_temp_C <- results$getTm()
+
+  list(
+    enthalpy_cal = enthalpy_cal,
+    entropy_cal = entropy_cal,
+    enthalpy_J = enthalpy_J,
+    entropy_J = entropy_J,
+    melting_temp_C = melting_temp_C
+  ) -> out
+
+  class(out) <- c("melting_res")
+
+  out
+
+}
+
+print.melting_res <- function(x, ...) {
+
+  cat(
+    "The MELTING results are:\n\n",
+    "  - Enthalpy: ", prettyNum(x$enthalpy_cal), " cal/mol",
+    {if (!is.null(x$enthalpy_J)) paste0(" (", prettyNum(x$enthalpy_J), " J /mol)", collapse="") else ""}, "\n",
+    "  - Entropy: ", prettyNum(x$entropy_cal), " cal/mol-K",
+    {if (!is.null(x$entropy_J)) paste0(" (", prettyNum(x$entropy_J), " J /mol-K)", collapse="") else ""}, "\n",
+    "  - Meltng temperature: ", prettyNum(x$melting_temp_C), " degress C\n",
+    sep=""
+  )
+
+}
+
+
+Sodium <- 0.05
+
+opts <- c(
+  "-S", "GTCGTATCCAGTGCAGGGTCCGAGGTATTCGCACTGGATACGACTTCCAC",
+  "-H", "dnadna",
+  "-P", 5e-8,
+  "-E", paste("Na=", Sodium, sep = "")
+)
+
+res <- get_melting_results(opts)
+#> Loading required package: melting5jars
+#> Loading required package: rJava
+
+res
+#> The MELTING results are:
+#> 
+#>   - Enthalpy: -408000 cal/mol (-1705440 J /mol)
+#>   - Entropy: -1092.4 cal/mol-K (-4566.232 J /mol-K)
+#>   - Meltng temperature: 72.04301 degress C
+
+str(res)
+#> List of 5
+#>  $ enthalpy_cal  : num -408000
+#>  $ entropy_cal   : num -1092
+#>  $ enthalpy_J    : num -1705440
+#>  $ entropy_J     : num -4566
+#>  $ melting_temp_C: num 72
+#>  - attr(*, "class")= chr "melting_res"
+```

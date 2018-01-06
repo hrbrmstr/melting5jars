@@ -4,9 +4,28 @@
 \name{melting5jars}
 \alias{melting5jars}
 \alias{melting5jars-package}
-\title{Java Archive Wrapper Supporting the 'melting5' Package}
+\title{'Java' Archive Wrapper Supporting for the 'MELTING 5' Computation Library}
 \description{
-Java Archive Wrapper Supporting the 'melting5' Package
+An R package wrapper for \href{http://www.ebi.ac.uk/biomodels/tools/melting/}{MELTING 5} jars.\cr
+\cr
+The 'MELTING 5' \url{http://www.ebi.ac.uk/biomodels/tools/melting/} 'Java' archive
+file is included along with the model data directory to facilitate accessing
+the library computations from within an R session.
+}
+\details{
+The package attempts to set \code{NN_PATH} to point to the \code{Data} directory contained
+within. To be on the safe side, you should:
+
+Sys.setenv("NN_PATH"=system.file("extdata", "Data", package="melting5jars"))
+
+before you \code{require()} or \code{library()} the package.
+
+Once loaded, you can use the Java components directly from R. i.e.
+
+melting <- new(J("melting.Main"))
+
+See the \href{https://github.com/hrbrmstr/melting5jars}{GitHub README} for more information
+and examples.
 }
 \author{
 Bob Rudis (bob@rud.is)

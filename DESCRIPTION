@@ -1,17 +1,23 @@
 Package: melting5jars
 Type: Package
-Title: Java Archive Wrapper Supporting the 'melting5' Package
+Title: 'Java' Archive Wrapper Supporting for the 'MELTING 5' Computation Library
 Version: 3.4.0
 Date: 2017-09-04
 Authors@R: c(
-    person("Bob", "Rudis", role = c("aut", "cre"), email = "bob@rud.is")
+    person("Bob", "Rudis", role = c("aut", "cre"), email = "bob@rud.is"),
+    person("Nicholas", "Novère", role="aut", comment="MELTING 5 Java Library",
+           email="n.lenovere@gmail.com"),
+    person("Marine", "Dumousseau", role="aut", comment="MELTING 5 Java Library"),
+    person("William", "Gowers", role="aut", comment="MELTING 5 Java Library")
   )
 Maintainer: Bob Rudis <bob@rud.is>
 SystemRequirements: Java
-Description: Contents of the 'MELTING 5' Java archive.
+Description: The 'MELTING 5' <http://www.ebi.ac.uk/biomodels/tools/melting/> 'Java' archive
+   file is included along with the model data directory to facilitate accessing 
+   the library computations from within an R session.
 URL: https://github.com/hrbrmstr/melting5jars
 BugReports: https://github.com/hrbrmstr/melting5jars/issues
-License: GPL-2
+License: GPL-2 + file LICENSE
 Encoding: UTF-8
 Suggests:
     testthat,
