@@ -2,7 +2,7 @@ Package: melting5jars
 Type: Package
 Title: 'Java' Archive Wrapper Supporting for the 'MELTING 5' Computation Library
 Version: 3.4.0
-Date: 2017-09-04
+Date: 2018-01-06
 Authors@R: c(
     person("Bob", "Rudis", role = c("aut", "cre"), email = "bob@rud.is"),
     person("Nicholas", "Novère", role="aut", comment="MELTING 5 Java Library",
@@ -20,8 +20,7 @@ BugReports: https://github.com/hrbrmstr/melting5jars/issues
 License: GPL-2
 Encoding: UTF-8
 Suggests:
-    testthat,
-    covr
+    testthat
 Depends:
     R (>= 3.2.0),
     rJava
