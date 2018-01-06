@@ -1,0 +1,22 @@
+Package: melting5jars
+Type: Package
+Title: Java Archive Wrapper Supporting the 'melting5' Package
+Version: 3.4.0
+Date: 2017-09-04
+Authors@R: c(
+    person("Bob", "Rudis", role = c("aut", "cre"), email = "bob@rud.is")
+  )
+Maintainer: Bob Rudis <bob@rud.is>
+SystemRequirements: Java
+Description: Contents of the 'MELTING 5' Java archive.
+URL: https://github.com/hrbrmstr/melting5jars
+BugReports: https://github.com/hrbrmstr/melting5jars/issues
+License: GPL-2
+Encoding: UTF-8
+Suggests:
+    testthat,
+    covr
+Depends:
+    R (>= 3.2.0),
+    rJava
+RoxygenNote: 6.0.1.9000

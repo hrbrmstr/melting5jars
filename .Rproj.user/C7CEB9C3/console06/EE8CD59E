@@ -1,0 +1,9 @@
+]0;~/packages/melting5jars[?1034hliono:melting5jars hrbrmstr$ git remote add origin git@github.com:hrbrmstr/melting5jars.git
+fatal: Not a git repository (or any of the parent directories): .git
+]0;~/packages/melting5jarsliono:melting5jars hrbrmstr$ git push -u origin master
+fatal: Not a git repository (or any of the parent directories): .git
+]0;~/packages/melting5jarsliono:melting5jars hrbrmstr$ git add -A
+fatal: Not a git repository (or any of the parent directories): .git
+]0;~/packages/melting5jarsliono:melting5jars hrbrmstr$ git init
+Initialized empty Git repository in /Users/hrbrmstr/packages/melting5jars/.git/
+]0;~/packages/melting5jarsliono:melting5jars hrbrmstr$ git add- A[K[K[K -A
