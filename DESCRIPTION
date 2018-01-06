@@ -17,7 +17,7 @@ Description: The 'MELTING 5' <http://www.ebi.ac.uk/biomodels/tools/melting/> 'Ja
    the library computations from within an R session.
 URL: https://github.com/hrbrmstr/melting5jars
 BugReports: https://github.com/hrbrmstr/melting5jars/issues
-License: GPL-2 + file LICENSE
+License: GPL-2
 Encoding: UTF-8
 Suggests:
     testthat,
