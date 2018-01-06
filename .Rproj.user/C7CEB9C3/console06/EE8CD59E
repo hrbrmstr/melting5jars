@@ -7,3 +7,88 @@ fatal: Not a git repository (or any of the parent directories): .git
 ]0;~/packages/melting5jarsliono:melting5jars hrbrmstr$ git init
 Initialized empty Git repository in /Users/hrbrmstr/packages/melting5jars/.git/
 ]0;~/packages/melting5jarsliono:melting5jars hrbrmstr$ git add- A[K[K[K -A
+]0;~/packages/melting5jarsliono:melting5jars hrbrmstr$ git comit -m[K[K[K[K[Kmit -m "intial commit"
+[master (root-commit) 95b9a1d] intial commit
+ 70 files changed, 9449 insertions(+)
+ create mode 100644 .Rbuildignore
+ create mode 100644 .Rproj.user/C7CEB9C3/console06/EE8CD59E
+ create mode 100644 .Rproj.user/C7CEB9C3/console06/INDEX001
+ create mode 100644 .Rproj.user/C7CEB9C3/cpp-definition-cache
+ create mode 100644 .Rproj.user/C7CEB9C3/pcs/source-pane.pper
+ create mode 100644 .Rproj.user/C7CEB9C3/pcs/windowlayoutstate.pper
+ create mode 100644 .Rproj.user/C7CEB9C3/pcs/workbench-pane.pper
+ create mode 100644 .Rproj.user/C7CEB9C3/persistent-state
+ create mode 100644 .Rproj.user/C7CEB9C3/rmd-outputs
+ create mode 100644 .Rproj.user/C7CEB9C3/saved_source_markers
+ create mode 100644 .Rproj.user/C7CEB9C3/sources/s-6B50290/lock_file
+ create mode 100644 .Rproj.user/shared/notebooks/patch-chunk-names
+ create mode 100644 DESCRIPTION
+ create mode 100644 NAMESPACE
+ create mode 100644 NEWS.md
+ create mode 100644 R/logging.r
+ create mode 100644 R/melting5jars-package.R
+ create mode 100644 R/zzz.r
+ create mode 100644 README.Rmd
+ create mode 100644 README.md
+ create mode 100644 inst/extdata/Data/AllawiSantalucia1997nn.xml
+ create mode 100644 inst/extdata/Data/AllawiSantaluciaPeyret1997_1998_1999mm.xml
+ create mode 100644 inst/extdata/Data/AllawiSantaluciaPeyret1997_1998_1999tanmm.xml
+ create mode 100644 inst/extdata/Data/Asanuma2005azobenmn.xml
+ create mode 100644 inst/extdata/Data/Bommarito2000de.xml
+ create mode 100644 inst/extdata/Data/Breslauer1986nn.xml
+ create mode 100644 inst/extdata/Data/Broda2005CNG.xml
+ create mode 100644 inst/extdata/Data/Dangling_ends.xml
+ create mode 100644 inst/extdata/Data/Freier1986nn.xml
+ create mode 100644 inst/extdata/Data/Loop.xml
+ create mode 100644 inst/extdata/Data/McTigue2004lockedmn.xml
+ create mode 100644 inst/extdata/Data/Mismatches.xml
+ create mode 100644 inst/extdata/Data/Modified_nucleotides.xml
+ create mode 100644 inst/extdata/Data/Nearest_Neighbor.xml
+ create mode 100644 inst/extdata/Data/Santalucia1996nn.xml
+ create mode 100644 inst/extdata/Data/Santalucia2004hairpin.xml
+ create mode 100644 inst/extdata/Data/Santalucia2004longbulge.xml
+ create mode 100644 inst/extdata/Data/Santalucia2004longmm.xml
+ create mode 100644 inst/extdata/Data/Santalucia2004nn.xml
+ create mode 100644 inst/extdata/Data/Santalucia2005inomn.xml
+ create mode 100644 inst/extdata/Data/Serra1997_1998_2000_2006hairpin.xml
+ create mode 100644 inst/extdata/Data/Serra2005doublede.xml
+ create mode 100644 inst/extdata/Data/Serra2006_2008de.xml
+ create mode 100644 inst/extdata/Data/Serra2006doublede.xml
+ create mode 100644 inst/extdata/Data/Serra2007bulge.xml
+ create mode 100644 inst/extdata/Data/Serra2012wobble.xml
+ create mode 100644 inst/extdata/Data/Sugimoto1995nn.xml
+ create mode 100644 inst/extdata/Data/Sugimoto1996nn.xml
+ create mode 100644 inst/extdata/Data/Sugimoto2001hydroxyAmn.xml
+ create mode 100644 inst/extdata/Data/Sugimoto2002longdde.xml
+ create mode 100644 inst/extdata/Data/Sugimoto2002longrde.xml
+ create mode 100644 inst/extdata/Data/Tanaka2004bulge.xml
+ create mode 100644 inst/extdata/Data/Tanaka2004nn.xml
+ create mode 100644 inst/extdata/Data/Turner1999_2006hairpin.xml
+ create mode 100644 inst/extdata/Data/Turner1999_2006longbulge.xml
+ create mode 100644 inst/extdata/Data/Turner1999_2006longmm.xml
+ create mode 100644 inst/extdata/Data/Turner1999_2006tanmm.xml
+ create mode 100644 inst/extdata/Data/Turner1999wobble.xml
+ create mode 100644 inst/extdata/Data/Turner2006nn.xml
+ create mode 100644 inst/extdata/Data/Watkins2010mm.xml
+ create mode 100644 inst/extdata/Data/Xia1998nn.xml
+ create mode 100644 inst/extdata/Data/Znosko20071x2loop.xml
+ create mode 100644 inst/extdata/Data/Znosko2007inomn.xml
+ create mode 100644 inst/extdata/Data/Znosko2007mm.xml
+ create mode 100644 inst/extdata/Data/Znosko2008mm.xml
+ create mode 100644 inst/java/melting5.jar
+ create mode 100644 man/melting5jars.Rd
+ create mode 100644 melting5jars.Rproj
+ create mode 100644 tests/test-all.R
+ create mode 100644 tests/testthat/test-melting5jars.R
+]0;~/packages/melting5jarsliono:melting5jars hrbrmstr$ git remote add origin git@github.com:hrbrmstr/melting5jars.git
+]0;~/packages/melting5jarsliono:melting5jars hrbrmstr$ git push -u origin master
+Counting objects: 87, done.
+Delta compression using up to 24 threads.
+Compressing objects:   1% (1/70)   Compressing objects:   2% (2/70)   Compressing objects:   4% (3/70)   Compressing objects:   5% (4/70)   Compressing objects:   7% (5/70)   Compressing objects:   8% (6/70)   Compressing objects:  10% (7/70)   Compressing objects:  11% (8/70)   Compressing objects:  12% (9/70)   Compressing objects:  14% (10/70)   Compressing objects:  15% (11/70)   Compressing objects:  17% (12/70)   Compressing objects:  18% (13/70)   Compressing objects:  20% (14/70)   Compressing objects:  21% (15/70)   Compressing objects:  22% (16/70)   Compressing objects:  24% (17/70)   Compressing objects:  25% (18/70)   Compressing objects:  27% (19/70)   Compressing objects:  28% (20/70)   Compressing objects:  30% (21/70)   Compressing objects:  31% (22/70)   Compressing objects:  32% (23/70)   Compressing objects:  34% (24/70)   Compressing objects:  35% (25/70)   Compressing objects:  37% (26/70)   Compressing objects:  38% (27/70)   Compressing objects:  40% (28/70)   Compressing objects:  41% (29/70)   Compressing objects:  42% (30/70)   Compressing objects:  44% (31/70)   Compressing objects:  45% (32/70)   Compressing objects:  47% (33/70)   Compressing objects:  48% (34/70)   Compressing objects:  50% (35/70)   Compressing objects:  51% (36/70)   Compressing objects:  52% (37/70)   Compressing objects:  54% (38/70)   Compressing objects:  55% (39/70)   Compressing objects:  57% (40/70)   Compressing objects:  58% (41/70)   Compressing objects:  60% (42/70)   Compressing objects:  61% (43/70)   Compressing objects:  62% (44/70)   Compressing objects:  64% (45/70)   Compressing objects:  65% (46/70)   Compressing objects:  67% (47/70)   Compressing objects:  68% (48/70)   Compressing objects:  70% (49/70)   Compressing objects:  71% (50/70)   Compressing objects:  72% (51/70)   Compressing objects:  74% (52/70)   Compressing objects:  75% (53/70)   Compressing objects:  77% (54/70)   Compressing objects:  78% (55/70)   Compressing objects:  80% (56/70)   Compressing objects:  81% (57/70)   Compressing objects:  82% (58/70)   Compressing objects:  84% (59/70)   Compressing objects:  85% (60/70)   Compressing objects:  87% (61/70)   Compressing objects:  88% (62/70)   Compressing objects:  90% (63/70)   Compressing objects:  91% (64/70)   Compressing objects:  92% (65/70)   Compressing objects:  94% (66/70)   Compressing objects:  95% (67/70)   Compressing objects:  97% (68/70)   Compressing objects:  98% (69/70)   Compressing objects: 100% (70/70)   Compressing objects: 100% (70/70), done.
+Writing objects:   1% (1/87)   Writing objects:   2% (2/87)   Writing objects:   3% (3/87)   Writing objects:   4% (4/87)   Writing objects:   5% (5/87)   Writing objects:   6% (6/87)   Writing objects:   8% (7/87)   Writing objects:   9% (8/87)   Writing objects:  10% (9/87)   Writing objects:  11% (10/87)   Writing objects:  12% (11/87)   Writing objects:  13% (12/87)   Writing objects:  14% (13/87)   Writing objects:  16% (14/87)   Writing objects:  17% (15/87)   Writing objects:  18% (16/87)   Writing objects:  19% (17/87)   Writing objects:  20% (18/87)   Writing objects:  21% (19/87)   Writing objects:  22% (20/87)   Writing objects:  24% (21/87)   Writing objects:  25% (22/87)   Writing objects:  26% (23/87)   Writing objects:  27% (24/87)   Writing objects:  28% (25/87)   Writing objects:  29% (26/87)   Writing objects:  31% (27/87)   Writing objects:  32% (28/87)   Writing objects:  33% (29/87)   Writing objects:  34% (30/87)   Writing objects:  35% (31/87)   Writing objects:  36% (32/87)   Writing objects:  37% (33/87)   Writing objects:  41% (36/87)   Writing objects:  42% (37/87)   Writing objects:  44% (39/87)   Writing objects:  45% (40/87)   Writing objects:  47% (41/87)   Writing objects:  50% (44/87)   Writing objects:  51% (45/87)   Writing objects:  52% (46/87)   Writing objects:  54% (47/87)   Writing objects:  55% (48/87)   Writing objects:  56% (49/87)   Writing objects:  57% (50/87)   Writing objects:  58% (51/87)   Writing objects:  62% (54/87)   Writing objects:  63% (55/87)   Writing objects:  64% (56/87)   Writing objects:  65% (57/87)   Writing objects:  71% (62/87)   Writing objects:  72% (63/87)   Writing objects:  75% (66/87)   Writing objects:  77% (67/87)   Writing objects:  78% (68/87)   Writing objects:  79% (69/87)   Writing objects:  80% (70/87)   Writing objects:  81% (71/87)   Writing objects:  82% (72/87)   Writing objects:  83% (73/87)   Writing objects:  85% (74/87)   Writing objects:  86% (75/87)   Writing objects:  87% (76/87)   Writing objects:  89% (78/87)   Writing objects:  90% (79/87)   Writing objects:  91% (80/87)   Writing objects:  93% (81/87)   Writing objects:  94% (82/87)   Writing objects:  95% (83/87)   Writing objects:  96% (84/87)   Writing objects:  97% (85/87)   Writing objects:  98% (86/87)   Writing objects: 100% (87/87)   Writing objects: 100% (87/87), 338.35 KiB | 2.87 MiB/s, done.
+Total 87 (delta 35), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/35)   [Kremote: Resolving deltas:  20% (7/35)   [Kremote: Resolving deltas:  28% (10/35)   [Kremote: Resolving deltas:  42% (15/35)   [Kremote: Resolving deltas:  74% (26/35)   [Kremote: Resolving deltas:  82% (29/35)   [Kremote: Resolving deltas: 100% (35/35)   [Kremote: Resolving deltas: 100% (35/35), done.[K
+To github.com:hrbrmstr/melting5jars.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+]0;~/packages/melting5jarsliono:melting5jars hrbrmstr$ 
